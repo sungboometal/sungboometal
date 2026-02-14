@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성부금속 | Sungboo Metal - 철제 구조물 제작 전문</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <style>
+        :root {
+            --primary-color: #D4AF37;
+        }
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .bg-gold { background-color: var(--primary-color); }
+        .text-gold { color: var(--primary-color); }
+        .border-gold { border-color: var(--primary-color); }
+        
+        /* Custom Utilities */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0"
+  }
+}
+</script>
+</head>
+<body class="bg-white text-gray-900">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 border-b border-gray-100 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="https://www.성부금속.com" class="flex items-center group">
+                        <!-- 이미지 경로: 상대경로 적용 -->
+                        <img src="images/성부금속로고.png" alt="성부금속 로고" class="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#services" class="text-sm font-medium hover:text-gold transition-colors">서비스</a>
+                    <a href="#portfolio" class="text-sm font-medium hover:text-gold transition-colors">시공사례</a>
+                    <a href="#contact" class="text-sm font-medium hover:text-gold transition-colors">문의하기</a>
+                    <a href="#contact" class="px-5 py-2 rounded-full text-white text-sm bg-gold hover:opacity-90 transition-all shadow-md">견적문의</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-600 focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#services" class="block px-3 py-4 text-base font-medium text-gray-700 hover:bg-gray-50 border-b border-gray-50">서비스</a>
+                <a href="#portfolio" class="block px-3 py-4 text-base font-medium text-gray-700 hover:bg-gray-50 border-b border-gray-50">시공사례</a>
+                <a href="#contact" class="block px-3 py-4 text-base font-medium text-gray-700 hover:bg-gray-50 border-b border-gray-50">문의하기</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen min-h-[600px] flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- 이미지 경로: 상대경로 적용 -->
+            <img src="images/메인.jpg" class="w-full h-full object-cover" alt="성부금속 메인 배경">
+            <div class="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="max-w-2xl">
+                <h1 class="text-5xl md:text-7xl font-extralight tracking-tighter leading-tight mb-8 text-gray-900">
+                    공간을 잇는 <br />
+                    <span class="font-medium text-gold">SUNGBOO METAL</span>
+                </h1>
+                <p class="text-xl text-gray-700 mb-10 font-medium leading-relaxed">
+                    철의 견고함에 예술적 가치를 더합니다.<br class="hidden md:block">
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#portfolio" class="px-10 py-4 bg-black text-white font-bold rounded-full transition-all hover:bg-gray-800 hover:shadow-xl hover:-translate-y-1">
+                        시공 사례 보기
+                    </a>
+                    <a href="#contact" class="px-10 py-4 bg-white border-2 border-gold text-gold font-bold rounded-full transition-all hover:bg-gray-50">
+                        견적 문의
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 md:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+            <h2 class="text-3xl md:text-4xl font-black text-gray-900 leading-tight tracking-tighter uppercase mb-16">OUR SERVICES</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="group relative h-[450px] overflow-hidden rounded-[2rem] bg-gray-900 shadow-xl">
+                    <img src="images/설계.jpg" alt="공간 맞춤 설계" class="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-[5]"></div>
+                    <div class="absolute inset-0 p-10 flex flex-col justify-end z-10 items-center md:items-start text-center md:text-left">
+                        <div class="mb-6 text-gold">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">공간 맞춤 설계</h3>
+                        <p class="text-gray-300 leading-relaxed font-light">현장 실측 데이터를 기반으로 CAD 설계를 진행하여 시공 정밀도를 극대화합니다.</p>
+                    </div>
+                </div>
+                <!-- Service Card 2 -->
+                <div class="group relative h-[450px] overflow-hidden rounded-[2rem] bg-gray-900 shadow-xl">
+                    <img src="images/안전한 구조.jpg" alt="안전한 구조" class="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-[5]"></div>
+                    <div class="absolute inset-0 p-10 flex flex-col justify-end z-10 items-center md:items-start text-center md:text-left">
+                        <div class="mb-6 text-gold">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">안전한 구조</h3>
+                        <p class="text-gray-300 leading-relaxed font-light">철제 계단 제작 노하우를 바탕으로 하중 설계와 견고한 용접을 약속합니다.</p>
+                    </div>
+                </div>
+                <!-- Service Card 3 -->
+                <div class="group relative h-[450px] overflow-hidden rounded-[2rem] bg-gray-900 shadow-xl">
+                    <img src="images/관리.jpg" alt="사후 관리 지원" class="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-[5]"></div>
+                    <div class="absolute inset-0 p-10 flex flex-col justify-end z-10 items-center md:items-start text-center md:text-left">
+                        <div class="mb-6 text-gold">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">1년 A/S 지원</h3>
+                        <p class="text-gray-300 leading-relaxed font-light">시공 후에도 안심하고 사용하실 수 있도록 책임감 있는 서비스를 실천합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Projects Section -->
+<section id="portfolio" class="py-24 md:py-32 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+        <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-8">
+            <div>
+                <h2 class="text-4xl md:text-5xl font-black mb-3 text-gray-900 tracking-tighter uppercase">PROJECTS</h2>
+                <p class="text-gray-500 text-lg">성부금속의 시공현장을 확인해보세요.</p>
+            </div>
+
+            <!-- Filter Buttons with Mobile Scroll -->
+            <div class="flex flex-nowrap overflow-x-auto gap-2 py-2 md:justify-start">
+                <button data-filter="전체" class="filter-btn px-7 py-2.5 rounded-full bg-gold text-white text-sm font-bold shadow-lg flex-shrink-0">전체</button>
+                <button data-filter="철계단" class="filter-btn px-7 py-2.5 rounded-full border border-gray-200 text-gray-400 text-sm font-bold hover:border-gray-400 hover:text-gray-700 transition-all flex-shrink-0">철계단</button>
+                <button data-filter="난간" class="filter-btn px-7 py-2.5 rounded-full border border-gray-200 text-gray-400 text-sm font-bold hover:border-gray-400 hover:text-gray-700 transition-all flex-shrink-0">난간</button>
+                <button data-filter="복층공사" class="filter-btn px-7 py-2.5 rounded-full border border-gray-200 text-gray-400 text-sm font-bold hover:border-gray-400 hover:text-gray-700 transition-all flex-shrink-0">복층공사</button>
+                <button data-filter="잡철" class="filter-btn px-7 py-2.5 rounded-full border border-gray-200 text-gray-400 text-sm font-bold hover:border-gray-400 hover:text-gray-700 transition-all flex-shrink-0">잡철</button>
+                <button data-filter="철구조물" class="filter-btn px-7 py-2.5 rounded-full border border-gray-200 text-gray-400 text-sm font-bold hover:border-gray-400 hover:text-gray-700 transition-all flex-shrink-0">철구조물</button>
+            </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr transition-opacity duration-500">
+            <!-- Project Cards (data-category 적용) -->
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="철계단">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                    <img src="images/분당 네일샵 철계단.jpg" alt="분당 네일샵 철계단 제작" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">철계단</span>
+                    </div>
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">분당 네일샵 철계단 제작</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">모던한 인테리어에 어울리는 슬림한 철제 프레임의 철계단</p>
+                </div>
+            </div>
+            
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="잡철">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                  <a href="https://blog.naver.com/sungboo1211/224074092646?trackingCode=blog_bloghome_searchlist" target="_blank">  
+                    <img src="images/동대문 DDP 난간 및 램프 시공.jpg" alt="동대문 DDP 난간 및 램프 시공" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">잡철</span>
+                    </div>
+                  </a>    
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">동대문 DDP 난간 및 램프 시공</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">동대문 DDP 루프탑에서 안전 난간 및 램프 설치 시공</p>
+                </div>
+            </div>
+
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="잡철">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                  <a href="https://blog.naver.com/sungboo1211/223544545642?trackingCode=blog_bloghome_searchlist" target="_blank">                      
+                    <img src="images/대전 한진스마트 허브 터미널 에어컨 실외기 선반 제작.jpg" alt="대전 한진스마트 허브 터미널 에어컨 실외기 선반 제작" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">잡철</span>
+                    </div>
+                  </a>                        
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">대전 한진스마트 허브 터미널 에어컨 실외기 선반 제작</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">내구성과 안정성을 갖춘 에어컨 선반, 대전 한진스마트 현장 시공 완료</p>
+                </div>
+            </div>
+
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="난간">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                  <a href="https://blog.naver.com/sungboo1211/223466766667?trackingCode=blog_bloghome_searchlist" target="_blank">      
+                    <img src="images/김포 한강신도시 화단 울타리.jpg" alt="김포 한강신도시 화단 울타리" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">난간</span>
+                    </div>
+                  </a>                        
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">김포 한강신도시 화단 울타리</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">김포 한강신도시, 미니멀한 회색 디자인과 내구성을 겸비한 화단 울타리 시공</p>
+                </div>
+            </div>
+
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="철구조물">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                  <a href="https://blog.naver.com/sungboo1211/223466724397?trackingCode=blog_bloghome_searchlist" target="_blank">
+                    <img src="images/주택 외부 데크 시공.jpg" alt="주택 외부 데크 시공" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">철구조물</span>
+                    </div>
+                  </a>                        
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">주택 외부 데크 시공</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">넓고 튼튼한 주택 외부 데크 시공으로, 안전하고 여유로운 휴식 공간 완성</p>
+                </div>
+            </div>            
+
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="복층공사">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                  <a href="https://blog.naver.com/sungboo1211/223265773182?trackingCode=blog_bloghome_searchlist" target="_blank">
+                    <img src="images/횡성요양원 내부 복층공사.jpg" alt="횡성요양원 내부 복층공사" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">복층공사</span>
+                    </div>
+                  </a>                        
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">횡성요양원 내부 복층공사</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">안전하고 효율적인 층고 최적화 횡성요양원 복층 공사</p>
+                </div>
+            </div>   
+
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="잡철">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                  <a href="https://blog.naver.com/sungboo1211/223107085825?trackingCode=blog_bloghome_searchlist" target="_blank">
+                    <img src="images/수원 상가내 차고 대문.jpg" alt="수원 상가내 차고 대문" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">잡철</span>
+                    </div>
+                  </a>                        
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">수원 상가내 차고 대문</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">수원 상가 공간에 맞춘 안전하고 깔끔한 차고 대문 시공</p>
+                </div>
+            </div>               
+            
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="복층공사">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                  <a href="https://blog.naver.com/sungboo1211/223988407569?trackingCode=blog_bloghome_searchlist" target="_blank">
+                    <img src="images/강남 청담동 스튜디오 사무실 복층 공사.jpg" alt="강남 청담동 스튜디오 사무실 복층 공사" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">복층공사</span>
+                    </div>
+                  </a>                        
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">강남 청담동 스튜디오 사무실 복층 공사</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">구조 안정성을 고려한 청담동 복층 철계단 제작</p>
+                </div>
+            </div>            
+
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="철계단">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                    <img src="images/반포동 켄틸레버 계단.jpg" alt="반포동 켄틸레버 계단" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">철계단</span>
+                    </div>
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">반포동 켄틸레버(스카이)계단</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">하중 설계 기반으로 한 미니멀 인테리어에 어울리는 켄틸레버 계단</p>
+                </div>
+            </div>
+
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="난간">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                    <img src="images/분당구 고기동 대문과 난간 시공.jpg" alt="분당구 고기동 대문과 난간 시공" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">난간</span>
+                    </div>
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">분당구 고기동 대문과 난간 시공</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">튼튼함과 디자인을 동시에, 분당 고기동 대문·난간 시공 완료</p>
+                </div>
+            </div>            
+
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="잡철">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                  <a href="https://blog.naver.com/sungboo1211/222902097837?trackingCode=blog_bloghome_searchlist" target="_blank">
+                    <img src="images/마포구 용강동 사무실 칸막이 시공.jpg" alt="마포구 용강동 사무실 칸막이 시공" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">잡철</span>
+                    </div>
+                  </a>                        
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">마포구 용강동 사무실 칸막이 시공</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">공간 활용과 모던함을 동시에, 용강동 사무실 맞춤 칸막이 시공</p>
+                </div>
+            </div>
+            
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="복층공사">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                  <a href="https://blog.naver.com/sungboo1211/223848954347?trackingCode=blog_bloghome_searchlist" target="_blank">
+                    <img src="images/강남 신사동 스튜디오 복층 공사.jpg" alt="강남 신사동 스튜디오 복층 공사" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">복층공사</span>
+                    </div>
+                  </a>                        
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">강남 신사동 스튜디오 복층 공사</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">신사동 스튜디오, 공간을 완성하는 철계단 복층 시공</p>
+                </div>
+            </div>
+            
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="철계단">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                    <img src="images/힘쎈여자 도봉순 협찬 계단.jpg" alt="힘쎈여자 도봉순 협찬 계단" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">철계단</span>
+                    </div>
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">JTBC드라마 <힘쎈여자 도봉순> 계단 협찬</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">다크 우드와 블랙 컬러의 조화를 이룬 일자계단 인테리어</p>
+                </div>
+            </div>
+
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="철계단">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                    <img src="images/파주 심학산 식당 내부 원형계단.jpg" alt="파주 심학산 식당 내부 원형계단" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">철계단</span>
+                    </div>
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">파주 심학산 식당 내부 원형계단</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">공간을 살리는 슬림 원형 계단 시공</p>
+                </div>
+            </div>
+
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="난간">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                    <img src="images/여주 모 사찰 내 난간 공사.jpg" alt="여주 모 사찰 내 난간 공사" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">난간</span>
+                    </div>
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">여주 모 사찰 내 난간 공사</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">고즈넉한 사찰 길에 은은한 빛을 더한 난간 시공</p>
+                </div>
+            </div>
+
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="잡철">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                  <a href="https://blog.naver.com/sungboo1211/223898481938?trackingCode=blog_bloghome_searchlist" target="_blank">
+                    <img src="images/파주 지영동 마당 확장 공사.jpg" alt="파주 지영동 마당 확장 공사" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">잡철</span>
+                    </div>
+                  </a>                        
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">파주 지영동 마당 확장 공사</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">생활 공간을 넓히는 마당 확장 시공</p>
+                </div>
+            </div>
+
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="철계단">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                    <img src="images/부평구 갈산동 상가 내부계단 시공.jpg" alt="부평구 갈산동 상가 내부계단 시공" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">철계단</span>
+                    </div>
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">부평구 갈산동 상가 내부계단 시공</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">공간 효율과 안정성을 모두 잡은 상가 내부 계단 제작</p>
+                </div>
+            </div>
+
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="잡철">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                  <a href="https://blog.naver.com/sungboo1211/223730902696?trackingCode=blog_bloghome_searchlist" target="_blank">
+                    <img src="images/강남구 반포동 애견샵 애견하우스 시공.jpg" alt="강남구 반포동 애견샵 애견하우스 시공" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">잡철</span>
+                    </div>
+                  </a>                        
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">강남구 반포동 애견샵 애견하우스 시공</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">튼튼하고 안정적인 구조와 깔끔한 화이트 디자인으로 완성한 맞춤형 애견하우스 시공</p>
+                </div>
+            </div>
+
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="잡철">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                  <a href="https://blog.naver.com/sungboo1211/223730879041?trackingCode=blog_bloghome_searchlist" target="_blank">
+                    <img src="images/서대문구 홍제동 상가 내부 선반 시공.jpg" alt="서대문구 홍제동 상가 내부 선반 시공" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">잡철</span>
+                    </div>
+                  </a>                        
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">서대문구 홍제동 상가 내부 선반 시공</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">깔끔한 마감과 안전성을 모두 잡은 홍제동 상가 맞춤 선반 시공</p>
+                </div>
+            </div>
+
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="철구조물">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                  <a href="https://blog.naver.com/sungboo1211/223633626497?trackingCode=blog_bloghome_searchlist" target="_blank">
+                    <img src="images/광진구 시흥동 국립예고 강당 내 빔 보강공사.jpg" alt="광진구 시흥동 국립예고 강당 내 빔 보강공사" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">철구조물</span>
+                    </div>
+                  </a>                        
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">광진구 시흥동 국립예고 강당 내 빔 보강공사</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">천장 빔 보강으로 강당 안전 확보, 광진구 국립예고 현장 시공 완료</p>
+                </div>
+            </div>
+
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="철구조물">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                  <a href="https://blog.naver.com/sungboo1211/222404518656?trackingCode=blog_bloghome_searchlist" target="_blank">
+                    <img src="images/전남 강진 모 건물 벽채 하지작업.jpg" alt="전남 강진 모 건물 벽채 하지작업" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">철구조물</span>
+                    </div>
+                  </a>                        
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">전남 강진 모 건물 벽채 하지작업</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">구조 안정성과 내구성을 확보한 전남 강진 건물 벽체 하지 작업</p>
+                </div>
+            </div>            
+
+            <div class="group block overflow-hidden project-item transition-opacity duration-500" data-category="철구조물">
+                <div class="relative aspect-[4/3] mb-8 overflow-hidden rounded-[2.5rem] bg-gray-200">
+                  <a href="https://blog.naver.com/sungboo1211/222404506259?trackingCode=blog_bloghome_searchlist" target="_blank">
+                    <img src="images/양수리 삼성요양병원 구름다리 공사.jpg" alt="양수리 삼성요양병원 구름다리 공사" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute top-6 left-6">
+                        <span class="px-4 py-1.5 bg-white/90 backdrop-blur text-[11px] font-black uppercase tracking-widest rounded-full shadow-sm">철구조물</span>
+                    </div>
+                  </a>                        
+                </div>
+                <div class="px-2">
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-gold transition-colors">양수리 삼성요양병원 구름다리 공사</h3>
+                    <p class="text-gray-500 font-light line-clamp-2">정밀 설계 기반 견고한 구름다리 시공, 양수리 삼성요양병원</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+   <!-- More Projects Button -->
+<div class="text-center mt-12">
+    <a href="https://blog.naver.com/sungboo1211" target="_blank" rel="noopener noreferrer"
+       class="inline-block px-10 py-4 bg-gold text-white font-bold text-lg rounded-full shadow-lg hover:bg-yellow-500 transition-colors">
+        더 많은 시공 사례 보기
+    </a>
+</div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 md:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-left">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center">
+                <!-- Info Side -->
+                <div class="flex flex-col items-center lg:items-start">
+                    <span class="font-bold tracking-widest uppercase mb-4 text-gold text-sm">Get in Touch</span>
+                    <h2 class="text-4xl md:text-6xl font-black mb-12 uppercase leading-tight">CONTACT US</h2>
+                    
+                    <!-- 수정사항: 태블릿(md) 이상에서 가로 배열하되 텍스트는 좌측 정렬 -->
+                    <div class="space-y-8 w-full max-w-md md:mx-auto lg:mx-0 lg:max-w-none">
+                        <!-- Phone -->
+                        <a href="tel:01022430481"
+                           onclick="return confirm('010-2243-0481로 전화를 거시겠습니까?')"
+                           class="flex flex-col md:flex-row items-center gap-6 group cursor-pointer">
+
+                            <div class="w-16 h-16 rounded-3xl bg-gray-50 flex items-center justify-center border border-gray-100 group-hover:bg-gold group-hover:text-black transition-all shadow-sm">
+                                <img src="images/전화아이콘.png" alt="전화 아이콘" class="w-7 h-7">
+                            </div>
+
+                            <div class="md:text-left text-center">
+                                <p class="text-gray-500 text-xs font-bold uppercase tracking-widest mb-1">
+                                    Quick Call
+                            </p>
+                            <p class="text-2xl font-bold">010-2243-0481</p>
+                        </div>
+
+                        </a>
+
+                        <!-- Email -->
+                        <div class="flex flex-col md:flex-row items-center gap-6 group">
+                            <div class="w-16 h-16 rounded-3xl bg-gray-50 flex items-center justify-center border border-gray-100 group-hover:bg-gold group-hover:text-black transition-all shadow-sm">
+                                <img src="images/메일아이콘.png" alt="이메일 아이콘" class="w-7 h-7">
+                            </div>
+                            <div class="md:text-left text-center">
+                                <p class="text-gray-500 text-xs font-bold uppercase tracking-widest mb-1">Send Email</p>
+                                <p class="text-2xl font-bold break-all">sungboo1211@naver.com</p>
+                            </div>
+                        </div>
+                        <!-- Address -->
+                        <div class="flex flex-col md:flex-row items-center gap-6 group">
+                            <div class="w-16 h-16 rounded-3xl bg-gray-50 flex items-center justify-center border border-gray-100 group-hover:bg-gold group-hover:text-black transition-all shadow-sm">
+                                <img src="images/지도아이콘.png" alt="지도 아이콘" class="w-7 h-7">
+                            </div>
+                            <div class="md:text-left text-center">
+                                <p class="text-gray-500 text-xs font-bold uppercase tracking-widest mb-1">Office</p>
+                                <p class="text-2xl font-bold">경기 고양시 덕양구 보광로 179-18</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Form Side -->
+                <div class="bg-white p-12 rounded-[3.5rem] border border-gray-100 shadow-2xl relative w-full">
+                    <h4 class="text-3xl font-black text-gray-900 mb-8">상담 및 견적 요청</h4>
+                    
+                      <!--form class="gform" method="POST" action=" "-->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold text-gray-400 uppercase tracking-widest">Name</label>
+                                <input type="text" name="name" placeholder="성함" required class="w-full p-5 bg-gray-50 rounded-2xl border border-gray-100 focus:border-gold outline-none transition-all shadow-sm">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold text-gray-400 uppercase tracking-widest">Phone</label>
+                                <input type="tel" name="phone" placeholder="연락처" required class="w-full p-5 bg-gray-50 rounded-2xl border border-gray-100 focus:border-gold outline-none transition-all shadow-sm">
+                            </div>
+                        </div>
+                        <div class="space-y-2 text-left">
+                            <label class="text-xs font-bold text-gray-400 uppercase tracking-widest">Type</label>
+                            <select name="type" required class="w-full p-5 bg-gray-50 rounded-2xl border border-gray-100 focus:border-gold outline-none transition-all shadow-sm appearance-none">
+                                <option value="">문의 유형 선택</option>
+                                <option="철계단">철계단</option>
+                                <option="난간">난간</option>
+                                <option="복층공사">복층공사</option>
+                                <option="잡철">잡철</option>
+                                <option="철구조물">철구조물</option>
+                                <option="기타">기타</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2 text-left">
+                            <label class="text-xs font-bold text-gray-400 uppercase tracking-widest">Message</label>
+                            <textarea name="message" rows="4" placeholder="문의하실 세부 내용을 입력해 주세요." required class="w-full p-5 bg-gray-50 rounded-2xl border border-gray-100 focus:border-gold outline-none transition-all shadow-sm"></textarea>
+                        </div>  
+                            <div class="space-y-2 text-left">
+                              <label class="text-xs font-bold text-gray-400 uppercase tracking-widest">사진 첨부</label>
+                              <input type="file" name="photo" accept="image/*" class="w-full p-5 bg-gray-50 rounded-2xl border border-gray-100 focus:border-gold outline-none transition-all shadow-sm">
+                        </div>
+                        <button type="submit" class="w-full py-6 bg-gold text-white font-black text-xl rounded-2xl shadow-xl hover:opacity-90 transition-all">신청하기</button>
+                    </form>
+          
+                    <div class="mt-6 pt-6 border-t border-gray-100">
+                      <p class="text-sm text-gray-500 mb-4 text-center">
+                         현장 사진을 첨부해주시면 정확한 상담이 가능합니다.
+                      </p>
+                      <a href="https://form.jotform.com/jsform/260442053698056" target="_blank" class="block w-full py-6 bg-gradient-to-r from-gold to-yellow-500 text-white font-black text-xl rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all text-center">
+                         사진 첨부하고 견적 요청하기
+                      </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Map -->
+    <div class="mt-12 w-full h-96 md:h-[500px] lg:h-[600px] rounded-3xl overflow-hidden shadow-lg">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3155.508089060444!2d126.9070812128645!3d37.73122277187966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c94ffb863917b%3A0x1cc855fb0620090!2z6rK96riw64-EIOqzoOyWkeyLnCDrjZXslpHqtawg67O06rSR66GcIDE3OS0xOA!5e0!3m2!1sko!2skr!4v1770464323798!5m2!1sko!2skr" 
+            class="w-full h-full" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="py-20 bg-white border-t border-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-12 mb-16">
+                <div class="max-w-sm flex flex-col items-center md:items-start">
+                    <h3 class="text-2xl font-black text-gray-900 mb-6 uppercase tracking-tighter">SUNGBOO <span class="text-gold">METAL</span></h3>
+                    <!-- 수정사항: 푸터 문구 줄바꿈 및 내용 수정 -->
+                    <p class="leading-relaxed mb-8 text-gray-500 font-medium">
+                        철제 구조물 제작 전문 기업으로<br>
+                        완벽한 시공과 책임 있는 사후 관리를 실천합니다.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-16 w-full md:w-auto text-sm">
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-6 uppercase">SERVICES</h4>
+                        <ul class="space-y-3 text-gray-400 font-medium">
+                            <li><a href="#portfolio" class="filter-btn inline-block px-4 py-2 rounded-lg transition-all duration-300 hover:bg-gold hover:text-white data-[active=true]:bg-gold data-[active=true]:text-white" data-filter="철계단">계단 공사</a></li>
+                            <li><a href="#portfolio" class="filter-btn inline-block px-4 py-2 rounded-lg transition-all duration-300 hover:bg-gold hover:text-white data-[active=true]:bg-gold data-[active=true]:text-white" data-filter="난간">난간 공사</a></li>
+                            <li><a href="#portfolio" class="filter-btn inline-block px-4 py-2 rounded-lg transition-all duration-300 hover:bg-gold hover:text-white data-[active=true]:bg-gold data-[active=true]:text-white" data-filter="복층공사">복층 공사</a></li>
+                            <li><a href="#portfolio" class="filter-btn inline-block px-4 py-2 rounded-lg transition-all duration-300 hover:bg-gold hover:text-white data-[active=true]:bg-gold data-[active=true]:text-white" data-filter="잡철">잡철</a></li>
+                            <li><a href="#portfolio" class="filter-btn inline-block px-4 py-2 rounded-lg transition-all duration-300 hover:bg-gold hover:text-white data-[active=true]:bg-gold data-[active=true]:text-white" data-filter="철구조물">철구조물</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-6 uppercase">LINKS</h4>
+                        <ul class="space-y-3 text-gray-400 font-medium">
+                            <li><a href="#portfolio" class="hover:text-gold">시공사례</a></li>
+                            <li><a href="#contact" class="hover:text-gold">문의하기</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-span-2 md:col-span-1">
+                        <h4 class="font-bold text-gray-900 mb-6 uppercase">OFFICE</h4>
+                        <p class="text-gray-400 leading-relaxed font-medium">
+                            경기 고양시 덕양구 보광로 179-18<br>
+                            Tel: 010-2243-0481
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-10 border-t border-gray-50 flex justify-center text-[10px] text-gray-300 font-medium tracking-widest uppercase">
+                <p>© 2015 SUNGBOO METAL. ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const maxCardsPerCategory = 6;
+    const grid = document.querySelector('.grid');
+    const cards = Array.from(document.querySelectorAll('.project-item'));
+    const filterButtons = document.querySelectorAll('.filter-btn');
+
+    // 확인용 로그 추가
+    console.log("Grid:", grid); // grid가 제대로 선택됐는지
+    console.log("Cards:", cards); // cards 배열이 제대로 된 길이를 가지는지
+    console.log("Filter Buttons:", filterButtons); // filterButtons가 제대로 선택됐는지
+
+    // 카테고리별 그룹핑
+    const categories = {};
+    cards.forEach(card => {
+        const category = card.dataset.category;
+        if (!categories[category]) categories[category] = [];
+        categories[category].push(card);
+    });
+
+    // 카드 표시 함수
+    function showCards(filteredCategory = '전체') {
+        cards.forEach(card => {
+            card.style.display = 'none';
+            card.style.opacity = 0;
+        });
+
+        Object.keys(categories).forEach(category => {
+            if (filteredCategory !== '전체' && category !== filteredCategory) return;
+            categories[category].forEach((card, index) => {
+                if (index < maxCardsPerCategory) {
+                    card.style.display = 'block';
+                    setTimeout(() => card.style.opacity = 1, 50);
+                }
+            });
+        });
+
+        // grid fade-in
+        grid.style.opacity = 1;
+    }
+
+    // 초기 로딩: 모든 카테고리 표시
+    showCards();
+
+    // 필터 버튼 이벤트
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.dataset.filter;
+
+            // 버튼 스타일 초기화
+            filterButtons.forEach(btn => {
+                btn.classList.remove('bg-gold', 'text-white');
+                btn.classList.add('text-gray-400', 'border', 'border-gray-200');
+            });
+
+            // 활성 버튼 스타일
+            button.classList.add('bg-gold', 'text-white');
+            button.classList.remove('text-gray-400');
+
+            // 카드 표시
+            showCards(filter);
+        });
+    });
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
