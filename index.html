@@ -636,22 +636,18 @@
 
     <!-- Scripts -->
     <script>
+    <script>
 document.addEventListener('DOMContentLoaded', () => {
     const maxCardsPerCategory = 6;
     const grid = document.querySelector('.grid');
     const cards = Array.from(document.querySelectorAll('.project-item'));
+    const filterButtons = document.querySelectorAll('.filter-btn');
 
-    //Services 섹션 버튼 /Projects 섹션 버튼을 구분해서 가져오기
-    const servicesButtons = document.querySelectorAll('.service-filter-btn');
-    const projectButtons = document.querySelectorAll('.project-filter-btn');
-    const portfolioButtons = document.querySelectorAll('portfolio');
-    
     // 확인용 로그 추가
     console.log("Grid:", grid); // grid가 제대로 선택됐는지
     console.log("Cards:", cards); // cards 배열이 제대로 된 길이를 가지는지
-    console.log("Service Buttons:", serviceButtons); // serviceButtons가 제대로 선택됐는지
-    console.log("Project Buttons:", projectButtons); // ProjectButtons가 제대로 선택됐는지
-    
+    console.log("Filter Buttons:", filterButtons); // filterButtons가 제대로 선택됐는지
+
     // 카테고리별 그룹핑
     const categories = {};
     cards.forEach(card => {
@@ -677,24 +673,10 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-      if (grid) {
-          grid.style.opacity = 1;
-      }
+        // grid fade-in
+        grid.style.opacity = 1;
     }
 
-    // Projects 버튼들의 active 스타일을 한 곳에서 관리
-    function setActiveProjectButton(filter) {
-        projectButtons.forEach(btn => {
-            btn.classList.remove('bg-gold', 'text-white');
-            btn.classList.add('text-gray-400', 'border', 'border-gray-200');
-
-            if (btn.dataset.filter === filter) {
-                btn.classList.add('bg-gold', 'text-white');
-                btn.classList.remove('text-gray-400');
-            }
-        });
-    }                          
-                          
     // 초기 로딩: 모든 카테고리 표시
     showCards();
 
@@ -719,9 +701,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
-
 </body>
 </html>
+
 
 
 
