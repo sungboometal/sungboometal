@@ -640,13 +640,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const maxCardsPerCategory = 6;
     const grid = document.querySelector('.grid');
     const cards = Array.from(document.querySelectorAll('.project-item'));
-    const filterButtons = document.querySelectorAll('.filter-btn');
 
+    //Services 섹션 버튼 /Projects 섹션 버튼을 구분해서 가져오기
+    const servicesButtons = document.querySelectorAll('.service-filter-btn');
+    const projectButtons = document.querySelectorAll('.project-filter-btn');
+    const portfolioButtons = document.querySelectorAll('portfolio');
+    
     // 확인용 로그 추가
     console.log("Grid:", grid); // grid가 제대로 선택됐는지
     console.log("Cards:", cards); // cards 배열이 제대로 된 길이를 가지는지
-    console.log("Filter Buttons:", filterButtons); // filterButtons가 제대로 선택됐는지
-
+    console.log("Service Buttons:", serviceButtons); // serviceButtons가 제대로 선택됐는지
+    console.log("Project Buttons:", projectButtons); // ProjectButtons가 제대로 선택됐는지
+    
     // 카테고리별 그룹핑
     const categories = {};
     cards.forEach(card => {
@@ -672,29 +677,54 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // grid fade-in
-        grid.style.opacity = 1;
+      if (grid) {
+          grid.style.opacity = 1;
+      }
     }
 
-    // 초기 로딩: 모든 카테고리 표시
-    showCards();
+    // Projects 버튼들의 active 스타일을 한 곳에서 관리
+    function setActiveProjectButton(filter) {
+        projectButtons.forEach(btn => {
+            btn.classList.remove('bg-gold', 'text-white');
+            btn.classList.add('text-gray-400', 'border', 'border-gray-200');
 
-    // 필터 버튼 이벤트
-    filterButtons.forEach(button => {
+            if (btn.dataset.filter === filter) {
+                btn.classList.add('bg-gold', 'text-white');
+                btn.classList.remove('text-gray-400');
+            }
+        });
+    }                          
+                          
+    // 초기 로딩: 전체 표시 + '전체' 버튼 활성화
+    showCards();
+    setActiveProjectButton('전체');
+
+    // 1) PROJECTS 섹션 버튼 클릭 시 (위쪽 필터 줄)
+    projectButtons.forEach(button => {
         button.addEventListener('click', () => {
             const filter = button.dataset.filter;
 
-            // 버튼 스타일 초기화
-            filterButtons.forEach(btn => {
-                btn.classList.remove('bg-gold', 'text-white');
-                btn.classList.add('text-gray-400', 'border', 'border-gray-200');
-            });
+            setActiveProjectButton(filter);
+            showCards(filter);
+        });
+    });
 
-            // 활성 버튼 스타일
-            button.classList.add('bg-gold', 'text-white');
-            button.classList.remove('text-gray-400');
+    // 2) SERVICES 섹션 버튼 클릭 시
+    serviceButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            event.preventDefault(); // 기본 #portfolio 점프는 막고 우리가 제어
 
-            // 카드 표시
+            const filter = button.dataset.filter;
+
+            // 포트폴리오 섹션으로 스무스 스크롤
+            if (portfolioSection) {
+                portfolioSection.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // Projects 섹션 버튼 스타일 동기화
+            setActiveProjectButton(filter);
+
+            // 카드 필터링
             showCards(filter);
         });
     });
@@ -702,6 +732,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
+
 
 
 
